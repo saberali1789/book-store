@@ -10,24 +10,34 @@ const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   const handleClick = (direction) => {
-    if(direction === 'left'){
-      setSlideIndex(slideIndex -1)
-    }else {
-      setSlideIndex(slideIndex + 1)
+    if (direction === "left") {
+      setSlideIndex(slideIndex - 1);
+    } else {
+      setSlideIndex(slideIndex + 1);
     }
-  }
+  };
   return (
     <div className="slide-container">
-      {slideIndex !== 0 && (<i onClick={()=> handleClick('left')} className="bi bi-chevron-double-left arrow-left"></i>)}
-      
-      <div style={{transform: `translatex(${slideIndex * 100}vw)`}} className="slider-wrapper">
+      {slideIndex !== 0 && (
+        <i
+          onClick={() => handleClick("left")}
+          className="bi bi-chevron-double-left arrow-left"
+        ></i>
+      )}
+
+      <div
+        style={{ transform: `translatex(${slideIndex * -100}vw)` }}
+        className="slider-wrapper"
+      >
         <div className="slider first-slide">
           <div className="slide-img-wrapper">
             <img src={FirstBook} alt="first book" />
           </div>
           <div className="slide-info-wrapper">
             <h1 className="slide-info-title">Book Store</h1>
-            <p className="slide-info-desc">It's not just reading. It's living the adventure</p>
+            <p className="slide-info-desc">
+              It's not just reading. It's living the adventure
+            </p>
           </div>
         </div>
         <div className="slider second-slide">
@@ -49,7 +59,12 @@ const Slider = () => {
           </div>
         </div>
       </div>
-      {slideIndex !== 2 && (<i onClick={() => handleClick('right')} className="bi bi-chevron-double-right arrow-right"></i>)}
+      {slideIndex !== 2 && (
+        <i
+          onClick={() => handleClick("right")}
+          className="bi bi-chevron-double-right arrow-right"
+        ></i>
+      )}
     </div>
   );
 };
