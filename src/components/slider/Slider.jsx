@@ -1,14 +1,26 @@
+/* eslint-disable react/no-unescaped-entities */
 
-import React from "react";
 import "./slider.css";
 import FirstBook from "../../images/book1.png";
 import SecondBook from "../../images/book2.png";
 import ThirdBook from "../../images/book3.png";
+import { useState } from "react";
 
 const Slider = () => {
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  const handleClick = (direction) => {
+    if(direction === 'left'){
+      setSlideIndex(slideIndex -1)
+    }else {
+      setSlideIndex(slideIndex + 1)
+    }
+  }
   return (
     <div className="slide-container">
-      <div className="slider-wrapper">
+      {slideIndex !== 0 && (<i onClick={()=> handleClick('left')} className="bi bi-chevron-double-left arrow-left"></i>)}
+      
+      <div style={{transform: `translatex(${slideIndex * 100}vw)`}} className="slider-wrapper">
         <div className="slider first-slide">
           <div className="slide-img-wrapper">
             <img src={FirstBook} alt="first book" />
@@ -37,6 +49,7 @@ const Slider = () => {
           </div>
         </div>
       </div>
+      {slideIndex !== 2 && (<i onClick={() => handleClick('right')} className="bi bi-chevron-double-right arrow-right"></i>)}
     </div>
   );
 };
