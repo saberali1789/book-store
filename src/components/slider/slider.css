@@ -48,7 +48,7 @@
 .slider-wrapper {
   height: 100%;
   display: flex;
-  transition: all 1s ease-in-out;
+  transition: all .5s ease-in-out;
 
 }
 
