@@ -1,18 +1,35 @@
 /* eslint-disable react/jsx-no-undef */
 import "./App.css";
-import BookSlider from "./components/book-slider/BookSlider";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
-import Services from "./components/services/Services";
-import Slider from "./components/slider/Slider";
-import {books} from './data/books'
+import HomePage from "./pages/home/HomePage";
+import About from "./pages/about/About";
+import Authors from "./pages/authers/Authors";
+import Cart from "./pages/cart/Cart";
+import { books } from './data/books';
+import Contact from "./pages/contact/Contact";
+import Register from "./pages/form/Register";
+import Login from "./pages/form/Login";
 
 function App() {
   return (
     <>
-      <Header />
-      <Slider />
-      <Services />
-      <BookSlider data={books} />
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/authors" element={<Authors />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/book/:id" element={<books />} />
+        </Routes>
+
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }

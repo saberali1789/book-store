@@ -1,9 +1,20 @@
 import { useState } from "react";
 import "./book-slider.css";
 import Rating from "./Rating";
+import Modal from "../modal/Modal";
 
 const BookSlider = ({ data }) => {
    const [slideIndex, setSlideIndex] = useState(0);
+   const [openModal, setOpenModal] = useState(false);
+   const [bookData, setBookData] = useState(null);
+
+  //  Handle modal
+  const handleModal = (book) => {
+    setOpenModal(true);
+    setBookData(book);
+  }
+  
+   //  Handle click
    const handleClick = (direction) => {
     if (direction === 'left'){
         setSlideIndex(slideIndex - 1)
@@ -24,12 +35,13 @@ const BookSlider = ({ data }) => {
                 <Rating rating={item.rating} review={item.review} />
                 <div className="book-slide-item-price">${item.price}</div>
                 <div className="book-slide-icon-wrapper">
-                    <i className="bi bi-eye-fill"></i>
+                    <i onClick={()=> handleModal(item)} className="bi bi-eye-fill"></i>
                     <i className="bi bi-cart-plus"></i>
                 </div>
             </div>)}
       </div>
       {slideIndex <= data.length-2 &&<i onClick={() => handleClick('right')} className="bi bi-chevron-right book-slider-arrow-right"></i>}
+      {openModal && <Modal bookData={bookData} setOpenModal={setOpenModal}/>}
     </div>
   );
 };
