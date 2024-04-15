@@ -7,10 +7,10 @@ import HomePage from "./pages/home/HomePage";
 import About from "./pages/about/About";
 import Authors from "./pages/authers/Authors";
 import Cart from "./pages/cart/Cart";
-import { books } from './data/books';
 import Contact from "./pages/contact/Contact";
 import Register from "./pages/form/Register";
 import Login from "./pages/form/Login";
+import Book from "./pages/book/Book";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/book/:id" element={<books />} />
+          <Route path="/book/:id" element={<Book />} />
         </Routes>
 
         <Footer />
