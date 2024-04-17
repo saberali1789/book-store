@@ -1,9 +1,10 @@
-import React from "react";
+
 import "./modal.css";
 import Rating from "../book-slider/Rating";
 import { Link } from "react-router-dom";
 const Modal = ({ bookData, setOpenModal }) => {
-  const { image, title, inStock, rating,id , author, price, reviews } = bookData;
+  // eslint-disable-next-line react/prop-types
+  const { image, title, inStock, rating ,id , author, price, reviews } = bookData;
 
   return (
     <div onClick={()=> setOpenModal(false)} className="modal">
@@ -38,7 +39,7 @@ const Modal = ({ bookData, setOpenModal }) => {
               <i className="bi bi-cart-plus"></i> Add To Card
             </button>
           </div>
-          <Link to={`/book:${id}`} className="modal-content-info-link">See More Details</Link>
+          <Link to={`/book/${id}`} className="modal-content-info-link">See More Details</Link>
         </div>
       </div>
     </div>
