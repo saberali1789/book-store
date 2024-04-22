@@ -1,9 +1,10 @@
 import React from "react";
+import './authors.css'
 
 import { authors } from "./../../data/authors";
 const Authors = () => {
   return (
-    <section className="author">
+    <section className="authors">
       <div className="author-search-wrapper">
         <input type="search" placeholder="Search in authors" />
       </div>
