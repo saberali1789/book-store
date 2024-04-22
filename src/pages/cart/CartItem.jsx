@@ -2,9 +2,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, addToCart, removeFromCart }) => {
 
-    const {image, title, author, quantity, price} = item
+    const {image, title, author, quantity, price, id} = item
   return (
     <div  className="cart-item">
     <img
@@ -25,18 +25,18 @@ const CartItem = ({ item }) => {
       </div>
       <div>
         <div className="cart-item-quantity">
-          <button>
+          <button onClick={() => addToCart({...item, quantity: item.quantity +1})} >
             <i className="bi bi-plus-lg"></i>
           </button>
           <b>{quantity}</b>
-          <button>
+          <button onClick={() => addToCart({...item, quantity: item.quantity - 1})}>
             <i className="bi bi-dash-lg"></i>
           </button>
         </div>
         <div className="cart-item-price">
-          ${price * quantity}
+          ${(price * quantity).toFixed(2)}
         </div>
-        <i className="bi bi-trash-fill"></i>
+        <i onClick={() => removeFromCart(id)} className="bi bi-trash-fill"></i>
       </div>
     </div>
   </div>
