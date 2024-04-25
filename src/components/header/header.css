@@ -28,10 +28,15 @@
   color: var(--main-color);
 }
 
-.header-top i {
-  margin-right: 8px;
+.header-top i,
+.header-top-link i {
+  margin-right: 4px;
 }
 
+.header-top-link {
+  text-decoration: none;
+  color: #fff;
+}
 /* Header Middle */
 .header-middle {
   display: flex;
