@@ -26,6 +26,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/book/:id" element={<Book />} />
+          
+        
         </Routes>
 
         <Footer />
